@@ -1,181 +1,489 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang Tin Tức</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #fdfdfd;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #5a4fcf;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    header img {
-      height: 50px;
-    }
-    nav {
-      background-color: #4139b1;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main.content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    section.poem {
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    section.poem h2 {
-      font-family: 'Playfair Display', serif;
-      color: #5a4fcf;
-    }
-    section.poem a {
-      color: #1a73e8;
-      font-weight: bold;
-    }
-    .video iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-      margin-top: 10px;
-    }
-    section.comments {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-    section.comments h3 {
-      color: #5a4fcf;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="Logo-AESMD-Pickleball1.jpg" alt="Logo">
-      <span>Trang tin tức - cập nhật các thông tin mới nhất của đội nhóm</span>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Tin Tức</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        background-color: #fdfdfd;
+        color: #333;
+        line-height: 1.6;
+      }
+      header {
+        background-color: #5a4fcf;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      header img {
+        height: 50px;
+      }
+      nav {
+        background-color: #4139b1;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main.content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      section.poem {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      section.poem h2 {
+        font-family: "Playfair Display", serif;
+        color: #5a4fcf;
+      }
+      section.poem a {
+        color: #1a73e8;
+        font-weight: bold;
+      }
+      .video iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border: none;
+        margin-top: 10px;
+      }
+      section.comments {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      section.comments h3 {
+        color: #5a4fcf;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="https://cdn.glitch.global/306d2d01-334d-497d-9c10-9ed163dc1851/tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg?v=1750727554447.jpg"
+          alt="Logo"
+        />
+        <span
+          >Trang tin tức - cập nhật các thông tin mới nhất của đội nhóm</span
+        >
+      </div>
 
-  <nav>
-    <a href="index.html">🏠 Trang chủ</a>
-    <a href="Tin-tuc.html">📖 Tin Tức</a>
-  </nav>
+      <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border: 3px solid blue; /* Viền ngoài đậm màu đỏ */
+          text-align: center;
+        }
 
-  <main class="content">
-    <!-- Mỗi bài thơ -->
-   
-    <section class="poem">
-    <h2>Chương trình thi đấu nội bộ - tháng 6 năm 2025</h2>
-        <p><em>Điều lệ giải - Danh Sách thành viên thi đấu<br><br>
-         <a href="Điều lệ Giải đấu ra mắt CLB Pickleball AES Mông Dương.docx" target="_blank">📄 Xem điều lệ giải dưới dạng word</a><br> <br> 
-          Nhằm khuyến khích lối sống lành mạnh, nâng cao thể chất, giảm căng thẳng và tăng cường gắn kết giữa các nhân viên,<br>
-          nhân dịp thành lập Câu lạc bộ Pickleball AES Mông Dương (CLB), Ban điều hành CLB phối hợp với bộ phận Facility tổ chức<br>
-          Giải đấu nội bộ CLB Pickleball AES Mông Dương. Đây là hoạt động thiết thực nhằm thúc đẩy tinh thần luyện tập thể thao,<br>
-          nâng cao sức khỏe thể chất và tinh thần cho cán bộ, nhân viên. Tạo sân chơi lành mạnh, giúp tăng cường sự gắn bó,<br>
-          phối hợp và hỗ trợ lẫn nhau trong nội bộ Công ty.<br><br>
+        th,
+        td {
+          border: 1px solid #333; /* Đường kẻ đơn mảnh cho các ô */
+          padding: 8px;
+        }
 
-       
-</em></p>
-    
+        th {
+          background-color: lightgray;
+        }
+      </style>
+    </header>
 
+    <nav>
+      <a href="index.html">🏠 Trang chủ</a>
+      <a href="Tin-tuc.html">📖 Tin Tức</a>
+    </nav>
 
-      
-</section> 
+    <main class="content">
+      <!-- Mỗi bài thơ -->
 
+      <section class="poem">
+        <h2>Chương trình thi đấu nội bộ - tháng 6 năm 2025</h2>
+        <p>
+          <em
+            >Điều lệ giải - Danh Sách thành viên thi đấu<br /><br />
+            <a
+              href="Điều lệ Giải đấu ra mắt CLB Pickleball AES Mông Dương.docx"
+              target="_blank"
+              >📄 Xem điều lệ giải dưới dạng word</a
+            ><br />
+            <br />
+            Nhằm khuyến khích lối sống lành mạnh, nâng cao thể chất, giảm căng
+            thẳng và tăng cường gắn kết giữa các nhân viên,<br />
+            nhân dịp thành lập Câu lạc bộ Pickleball AES Mông Dương (CLB), Ban
+            điều hành CLB phối hợp với bộ phận Facility tổ chức<br />
+            Giải đấu nội bộ CLB Pickleball AES Mông Dương. Đây là hoạt động
+            thiết thực nhằm thúc đẩy tinh thần luyện tập thể thao,<br />
+            nâng cao sức khỏe thể chất và tinh thần cho cán bộ, nhân viên. Tạo
+            sân chơi lành mạnh, giúp tăng cường sự gắn bó,<br />
+            phối hợp và hỗ trợ lẫn nhau trong nội bộ Công ty.<br /><br />
+          </em>
+        </p>
+      </section>
 
+      <section class="poem">
+        <h2>Chiều ngày 17-Jun-2025 - BTC sẽ cho bố thăm để ghép cặp</h2>
+        <img
+          src="Bảng Chấm Trình độ của các thành viên trong nhóm AES-MD- PickleBall - Ngày 17-6-2025.jpg"
+          alt=""
+        />
+        <p>Các lưu ý:</p>
+        <ul>
+          <li>
+            26 đôi sẽ bốc thăm chia các đội thành 8 bảng trong đó có 6 bảng 3
+            đôi và 2 bảng 4 đôi
+          </li>
+          <li>
+            Sẽ thi đấu vòng tròn lấy Nhất – Nhì mỗi bảng vào thi đấu vòng 1/16,
+            tứ kết, bán kết và chung kết.
+          </li>
+          <li>Hai đôi thua ở trận bán kết sẽ nhận đồng giải Ba.</li>
+        </ul>
+      </section>
+
+      <section class="poem">
+        <h2>Các cặp sẽ thi đấu vào ngày 24 và 25 tháng 6 năm 2025</h2>
+        <img src="Bảng thi đấu PickleBall ngày 25-6-2025.jpg" alt="" />
+        <p>Lưu ý:</p>
+        <ul>
+          <li>
+            Các cặp đôi có thể ghép và tập luyện vs nhau để chuẩn bị thi đấu
+            tốt, đạt thành tích cao
+          </li>
+          <li>
+            BTC có chuẩn bị dầu gội và sữa tắm cho các cặp có nhu cầu tắm sớm
+          </li>
+          <li>
+            Do thời lượng thi đấu trong 2 ngày khá ít, BTC các đôi cùng bảng có
+            thể sắp xếp thi đấu từ chiều ngày thứ 4 (24/6)
+          </li>
+          <li>
+            Các đôi muốn thi đấu sớm, đăng ký lịch với BTC để được sắp xếp
+          </li>
+        </ul>
+      </section>
+      <h2>Lịch thi đấu vòng bảng</h2>
+
+      <table>
+        <tr>
+          <th>Stt</th>
+          <th>Mã trận</th>
+          <th>Sân</th>
+          <th>Giờ đấu</th>
+          <th>Trận thi đấu vòng bảng</th>
+          <th>Kết quả</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>A1</td>
+          <td>S1</td>
+          <td>16:30</td>
+          <td>Châm/Doanh - Kiên/Lợi</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B1</td>
+          <td>S2</td>
+          <td>16:30</td>
+          <td>Khỏe/Công - Minh/Hoàng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>A2</td>
+          <td>S1</td>
+          <td>16:45</td>
+          <td>Nam/Thể - Nguyễn/Ngọc</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>B2</td>
+          <td>S2</td>
+          <td>16:45</td>
+          <td>Sơn/Thắng - Cảnh/Hùng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>A3</td>
+          <td>S1</td>
+          <td>17:00</td>
+          <td>Châm/Doanh - Nam/Thể</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B3</td>
+          <td>S2</td>
+          <td>17:00</td>
+          <td>Khỏe/Công - Cảnh/Hùng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>A4</td>
+          <td>S1</td>
+          <td>17:15</td>
+          <td>Kiên/Lợi - Nguyễn/Ngọc</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>B4</td>
+          <td>S2</td>
+          <td>17:15</td>
+          <td>Sơn/Thắng - Minh/Hoàng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>A5</td>
+          <td>S1</td>
+          <td>17:30</td>
+          <td>Kiên/Lợi - Nam/Cường</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>B5</td>
+          <td>S2</td>
+          <td>17:30</td>
+          <td>Khỏe/Công - Sơn/Thắng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>A6</td>
+          <td>S1</td>
+          <td>17:45</td>
+          <td>Châm/Doanh - Nguyễn/Ngọc</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>B6</td>
+          <td>S2</td>
+          <td>17:45</td>
+          <td>Minh/Hoàng - Cảnh/Hùng</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>C1</td>
+          <td>S1</td>
+          <td>18:00</td>
+          <td>Tùng/Hương - Hiền/Lai</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D1</td>
+          <td>S2</td>
+          <td>18:00</td>
+          <td>Vinh/Tùng - Lộc/ Sơn</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td>C2</td>
+          <td>S1</td>
+          <td>18:15</td>
+          <td>Tùng/Hương - Cường/Thịnh</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td>D2</td>
+          <td>S2</td>
+          <td>18:15</td>
+          <td>Vinh/Tùng - Hiếu/Dương</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td>C3</td>
+          <td>S1</td>
+          <td>18:30</td>
+          <td>Hiên/Lai - Cường/Thịnh</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+          <td>D3</td>
+          <td>S2</td>
+          <td>18:30</td>
+          <td>Lộc/ Sơn - Hiếu/Dương</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>19</td>
+          <td>E1</td>
+          <td>S1</td>
+          <td>18:45</td>
+          <td>Hiếu/Ngọc - Bắc/Thăng</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td>F1</td>
+          <td>S2</td>
+          <td>18:45</td>
+          <td>Ninh/Lập - Mạnh/Vỹ</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>21</td>
+          <td>E2</td>
+          <td>S1</td>
+          <td>19:00</td>
+          <td>Hiếu/Ngọc - Tuấn/Hiệp</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>22</td>
+          <td>F2</td>
+          <td>S2</td>
+          <td>19:00</td>
+          <td>Ninh/Lập - Hùng/Hiền</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>23</td>
+          <td>E3</td>
+          <td>S1</td>
+          <td>19:15</td>
+          <td>Bắc/Thăng - Tuấn/Hiệp</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>24</td>
+          <td>F3</td>
+          <td>S2</td>
+          <td>19:15</td>
+          <td>Mạnh/Vỹ - Hùng/Hiền</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>25</td>
+          <td>G1</td>
+          <td>S1</td>
+          <td>19:30</td>
+          <td>Dương/Sơn - Ngần/Phong</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>26</td>
+          <td>H1</td>
+          <td>S2</td>
+          <td>19:30</td>
+          <td>Công/Cương - Kiên/Hoàn</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>27</td>
+          <td>G2</td>
+          <td>S1</td>
+          <td>19:45</td>
+          <td>Dương/Sơn - Chung/Hải</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>28</td>
+          <td>H2</td>
+          <td>S2</td>
+          <td>19:45</td>
+          <td>Công/Cương -Dũng/Sơn</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>29</td>
+          <td>G3</td>
+          <td>S1</td>
+          <td>20:00</td>
+          <td>Ngần/Phong - Chung/Hải</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td>30</td>
+          <td>H3</td>
+          <td>S2</td>
+          <td>20:00</td>
+          <td>Kiên/Hoàn -Dũng/Sơn</td>
+          <td></td>
+        </tr>
+      </table>
+    </main>
+
+    <h4>Gửi ý kiến của bạn</h4>
+    <form action="https://formspree.io/f/xovwlwjz" method="POST">
+      <label for="message">Ý kiến của bạn:</label><br />
+      <textarea name="message" rows="5" cols="40" required></textarea
+      ><br /><br />
+
+      <label for="email">Email của bạn (tùy chọn):</label><br />
+      <input type="email" name="email" /><br /><br />
+
+      <button type="submit">Gửi phản hồi</button>
+    </form>
+
+    <section class="comments">
+      <h3>Bình luận</h3>
+      <script
+        src="https://utteranc.es/client.js"
+        repo="Sonho1974/Home-page"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async
+      ></script>
     </section>
-  <section class="poem">
-
-      <h2>Chiều ngày 17-Jun-2025 - BTC sẽ cho bố thăm để ghép cặp</h2>
-      <img src="Bảng Chấm Trình độ của các thành viên trong nhóm AES-MD- PickleBall - Ngày 17-6-2025.jpg" alt="">
-    <p><Strong>Các lưu ý: </Strong></p>
-    <ul>
-      <li>26 đôi sẽ bốc thăm chia các đội thành 8 bảng trong đó có 6 bảng 3 đôi và 2 bảng 4 đôi</li>
-      <li>Sẽ thi đấu vòng tròn lấy Nhất – Nhì mỗi bảng vào thi đấu vòng 1/16, tứ kết, bán kết và chung kết. </li>
-      <li> Hai đôi thua ở trận bán kết sẽ nhận đồng giải Ba. </li>
-   
-           
-    </ul>
-
-    </section>
-    
-    
-    <section class="poem">
-
-      <h2>Các cặp sẽ thi đấu vào ngày 24 và 25 tháng 6 năm 2025</h2>
-      <img src="Bảng thi đấu PickleBall ngày 25-6-2025.jpg" alt="">
-    <p><Strong>Lưu ý: </Strong></p>
-    <ul>
-      <li>Các cặp đôi có thể ghép và tập luyện vs nhau để chuẩn bị thi đấu tốt, đạt thành tích cao </li>
-      <li>BTC có chuẩn bị dầu gội và sữa tắm cho các cặp có nhu cầu tắm sớm </li>
-      <li>Do thời lượng thi đấu trong 2 ngày khá ít, BTC các đôi cùng bảng có thể sắp xếp thi đấu từ chiều ngày thứ 4 (24/6) </li>
-      <li>Các đôi muốn thi đấu sớm, đăng ký lịch với BTC để được sắp xếp </li>
-           
-    </ul>
-
-    </section>
-
-    
-  </main>
-
-  <h4>Gửi ý kiến của bạn</h4>
-<form action="https://formspree.io/f/xovwlwjz" method="POST">
-  <label for="message">Ý kiến của bạn:</label><br>
-  <textarea name="message" rows="5" cols="40" required></textarea><br><br>
-  
-  <label for="email">Email của bạn (tùy chọn):</label><br>
-  <input type="email" name="email"><br><br>
-
-  <button type="submit">Gửi phản hồi</button>
-</form>
-
-
-
-  <section class="comments">
-    <h3>Bình luận</h3>
-    <script src="https://utteranc.es/client.js"
-            repo="Sonho1974/Home-page"
-            issue-term="pathname"
-            label="comment"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-  </section>
-</body>
+  </body>
 </html>
