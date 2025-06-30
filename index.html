@@ -2,313 +2,227 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PickleBall - Công ty AES Mông Dương</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PickleBall - AES Mông Dương</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
       rel="stylesheet"
     />
     <style>
+      /* reset + base */
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
         font-family: "Roboto", sans-serif;
-        margin: 0;
-        background: #f0f2f5;
+        background: #f8f9fa;
         color: #333;
+        line-height: 1.6;
       }
+
       header {
-        background: url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center center/cover;
-        padding: 60px 20px;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+          url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center/cover;
+        color: #fff;
         text-align: center;
-        color: white;
+        padding: 60px 20px;
       }
       header h1 {
         font-family: "Playfair Display", serif;
-        font-size: 42px;
-        margin: 0;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
       }
 
       nav.main-menu {
-        background: #343a40;
+        background: #1d3557;
       }
       nav.main-menu ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 10px 0;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        list-style: none;
       }
       nav.main-menu ul li {
         position: relative;
-        margin: 0 15px;
       }
       nav.main-menu ul li a {
-        color: white;
-        font-weight: bold;
-        font-size: 16px;
+        display: block;
+        padding: 12px 18px;
+        color: #fff;
         text-decoration: none;
-        padding: 10px 14px;
-        display: inline-block;
-        border-radius: 5px;
+        transition: background 0.3s;
       }
       nav.main-menu ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255,255,255,0.1);
       }
-
-      nav.main-menu ul li:hover .dropdown-content {
-        display: block;
-      }
-
-      nav.main-menu ul li .dropdown-content {
+      /* dropdown */
+      nav.main-menu ul li ul.dropdown-content {
         display: none;
         position: absolute;
         top: 100%;
-        background-color: #343a40;
+        background: #1d3557;
+        border-radius: 0 0 8px 8px;
         min-width: 220px;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
+        z-index: 99;
       }
-      .dropdown-content li {
-        text-align: left;
-      }
-      .dropdown-content li a {
-        padding: 12px 16px;
-        color: white;
+      nav.main-menu ul li:hover .dropdown-content {
         display: block;
       }
-      .dropdown-content li a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+      .dropdown-content li a {
+        padding: 10px 16px;
+        font-size: 0.95rem;
       }
 
+      /* datetime */
       .datetime {
         text-align: center;
-        font-size: 14px;
-        margin: 10px 0;
+        font-size: 0.9rem;
         color: #555;
+        margin: 12px 0;
       }
 
+      /* cards layout */
       .content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 30px 20px;
       }
-
       .card {
-        background: white;
+        background: #fff;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        width: 100%;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         overflow: hidden;
-        text-align: center;
+        transition: transform 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
       }
       .card img {
         width: 100%;
-        height: 300px;
+        height: 250px;
         object-fit: cover;
       }
       .card h3 {
-        margin: 20px 0 10px;
         font-family: "Playfair Display", serif;
-        font-size: 22px;
         color: #1d3557;
+        margin: 16px;
+        font-size: 1.25rem;
       }
       .card p {
-        padding: 0 20px 20px;
-        font-size: 16px;
+        margin: 0 16px 16px;
+        font-size: 0.95rem;
         color: #444;
       }
 
       footer {
         text-align: center;
         padding: 20px;
-        font-size: 14px;
-        color: #888;
+        font-size: 0.9rem;
+        color: #777;
+        background: #f1f1f1;
+        margin-top: 20px;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Pickleball AES Mông Dương</h1>
+      <h1>PickleBall AES Mông Dương</h1>
     </header>
 
     <nav class="main-menu">
       <ul>
-        <li><a href="index.html">Trang Chủ🏠</a></li>
+        <li><a href="index.html">Trang Chủ 🏠</a></li>
         <li><a href="Tin-tuc.html">Tin Tức</a></li>
-        <li class="dropdown">
+        <li>
           <a href="#">Hình Ảnh ▼</a>
           <ul class="dropdown-content">
-            <li>
-              <a
-                href="#"
-                onclick="checkPassword('childhood')"
-                style="color: #ffd700; font-weight: bold"
-                >Hình Ảnh Trên Sân</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                onclick="checkPassword('family')"
-                style="color: #daa520; font-weight: bold"
-                >Hình Ảnh Giao lưu- Văn Nghệ</a
-              >
-            </li>
+            <li><a href="#" onclick="checkPassword('childhood')">Hình Ảnh Trên Sân</a></li>
+            <li><a href="#" onclick="checkPassword('family')">Hình Ảnh Giao lưu - Văn Nghệ</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#">Tham khảo về Pickleball ▼</a>
+        <li>
+          <a href="#">Tham khảo ▼</a>
           <ul class="dropdown-content">
-            <li>
-              <a href="https://bestsport.vn/luat-choi-pickleball/"
-                >Luật Chơi Pickleball Chuẩn Thi Đấu 2025</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/search?pglt=41&q=h%C6%B0%E1%BB%9Bng+d%E1%BA%ABn+cho+ng%C6%B0%E1%BB%9Di+m%E1%BB%9Bi+t%E1%BA%ADp+ch%C6%A1i+pickleball&cvid=8526f103c74b47218b8c5caacf514e8e&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyCAgDEOkHGPxV0gEJMTM4NDRqMGoxqAIIsAIB&FORM=ANNAB1&PC=DCTS"
-                >Hướng dẫn cho người mơi tập chơi</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/videos/riverview/relatedvideo?q=h%c6%b0%e1%bb%9bng+d%e1%ba%abn+cho+ng%c6%b0%e1%bb%9di+m%e1%bb%9bi+t%e1%ba%adp+ch%c6%a1i+pickleball&mid=3B3955C573649EB9FF353B3955C573649EB9FF35&FORM=VIRE&ajaxhist=0&ajaxserp=0"
-              >
-                Hướng dẫn cầm vợt Pickleball</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/videos/riverview/relatedvideo?q=h%c6%b0%e1%bb%9bng+d%e1%ba%abn+cho+ng%c6%b0%e1%bb%9di+m%e1%bb%9bi+t%e1%ba%adp+ch%c6%a1i+pickleball&mid=3B3955C573649EB9FF353B3955C573649EB9FF35&FORM=VIRE&ajaxhist=0&ajaxserp=0"
-                >Khóa Học Pickleball Volley Cơ Bản</a
-              >
-            </li>
-            </ul>
-        
-        <li class="dropdown">
+            <li><a href="https://bestsport.vn/luat-choi-pickleball/">Luật Thi Đấu 2025</a></li>
+            <li><a href="https://www.bing.com/search?q=hướng+dẫn+pickleball">Hướng dẫn cho người mới</a></li>
+            <li><a href="https://www.bing.com/videos?q=hướng+dẫn+cầm+vợt+pickleball">Cầm Vợt Cơ Bản</a></li>
+            <li><a href="https://www.bing.com/videos?q=pickleball+volley">Volley Cơ Bản</a></li>
+          </ul>
+        </li>
+        <li>
           <a href="#">Video ▼</a>
           <ul class="dropdown-content">
             <li><a href="chien-than.html">Chiến Thần - Tổng Tài</a></li>
             <li><a href="hinh-su-viet-nam.html">Hình Sự Việt Nam</a></li>
-           <li><a href="pickleball-video.html">THAM KHẢO Các Trận Đấu PickleBall Hay, Hấp dẫn</a></li>
-               <li><a href="video-giai-dau-25-6-2025.html">30 trận đấu vòng bảng giải nội bộ tháng 6-2025</a></li>
-
-            
-           </ul>
-       
+            <li><a href="pickleball-video.html">Trận Đấu PickleBall Hay</a></li>
+            <li><a href="video-giai-dau-25-6-2025.html">30 Trận Vòng Bảng 6/2025</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
 
-    <div class="datetime"><span id="datetime"></span></div>
+    <div class="datetime" id="datetime"></div>
 
     <main class="content">
-
-       <div class="card">
+      <div class="card">
         <img src="7-JAN-2025.jpg" alt="Giải thi đấu lần 1" />
         <h3>Đội nhóm PickleBall ban đầu của AES Mông Dương</h3>
-        <p>
-          Lần thi đấu đầu tiên diễn ra vào ngày 07-Jan-2025<br>
-          Thi đấu hết mình, với tinh thần thể thao fairplay!
-          
-        </p>
-      </div>
-      
-      <div class="card">
-        <img src="Logo-AESMD-Pickleball1.jpg" alt="Luyện Tập Hàng Ngày để tăng cường sức khỏe" />
-        <h3>Dắt tay nhau- Đoàn kết - cùng phát triển</h3>
-        <p>
-          Chào mừng bạn đến với nhóm PickleBall của công ty AES Mông Dương<br>
-          Luyện tập - Vui chơi để có tinh thần, sức khỏe và lối sống lành mạnh!
-          
-        </p>
+        <p>Lần thi đấu đầu tiên diễn ra vào 07-Jan-2025<br>Với tinh thần thể thao fairplay!</p>
       </div>
       <div class="card">
-        <img src="Logo-AESMD-Pickleball.jpg" alt="Hãy tham gia chơi PickleBall để có sức khỏe và tinh thần tốt" />
+        <img src="Logo-AESMD-Pickleball1.jpg" alt="Luyện tập hàng ngày" />
+        <h3>Dắt tay nhau - Đoàn kết - Cùng phát triển</h3>
+        <p>Luyện tập vui khỏe, gắn kết để nâng cao tinh thần và sức khỏe!</p>
+      </div>
+      <div class="card">
+        <img src="Logo-AESMD-Pickleball.jpg" alt="Luyện tập chăm chỉ" />
         <h3>Luyện tập chăm chỉ, thi đấu hết mình</h3>
-        <p>
-         Không ngừng tập luyện hàng ngày, tất cả chúng ta sẽ có sức khỏe và tinh thần tốt, tất cả chúng ta cùng chiến thắng!
-        </p>
+        <p>Tập luyện đều đặn giúp chúng ta có tinh thần và sức khỏe tuyệt vời!</p>
       </div>
-
-        </div>
       <div class="card">
-        <img src=" PKB-AES-MD-1 (21).jpg" alt="Hãy tham gia chơi PickleBall để có sức khỏe và tinh thần tốt" />
-        <h3>LỄ KHAI MẠC GIẢI ĐẤU THÀNH LẬP CÂU LẠC BỘ PICKLEBALL AES-MÔNG DƯƠNG</h3>
-        <p>
-         Chúng ta cùng nhau tập luyện, thi đấu hết mình, tinh thần thi đấu fair-play, để CLB ngày càng vững mạnh!
-        </p>
+        <img src="PKB-AES-MD-1 (21).jpg" alt="Lễ khai mạc" />
+        <h3>Lễ Khai Mạc Thành Lập CLB Pickleball AES-Mông Dương</h3>
+        <p>Hướng đến fair-play, đoàn kết và phát triển bền vững.</p>
       </div>
-
-         </div>
       <div class="card">
-        <img src=" PKB-AES-MD-1 (14).jpg" alt="Hãy tham gia chơi PickleBall để có sức khỏe và tinh thần tốt" />
-        <h3>BAN LÃNH ĐẠO CÔNG TY TẶNG HOA CHÚC MỪNG CÂU LẠC BỘ PICKLEBALL AES-MÔNG DƯƠNG</h3>
-        <p>
-       Chúc giải đấu an toàn và thành công rực rỡ, tất cả chúng ta cùng chiến thắng!
-        </p>
+        <img src="PKB-AES-MD-1 (14).jpg" alt="Tặng hoa" />
+        <h3>Ban lãnh đạo tặng hoa chúc mừng</h3>
+        <p>Chúc giải đấu thành công và đoàn kết vươn xa!</p>
       </div>
- 
-         <div class="card">
-            <img src="PKB-AES-MD-1  (34).jpg" alt="Hãy tham gia chơi PickleBall để có sức khỏe và tinh thần tốt" />
-               <h3>ĐẠI DIỆN VẬN ĐỘNG VIÊN LÊN TUYÊN THỆ CHƠI THỂ THAO VỚI TINH THẦN FAIR-PLAY</h3>
-        <p>
-      Chúng tôi xin hứa, sẽ thi đấu hết mình, tuân thủ ý kiến của trọng tài và Ban Tổ chức giải đấu.
-        </p>
+      <div class="card">
+        <img src="PKB-AES-MD-1 (34).jpg" alt="Tuyên thệ" />
+        <h3>Đại diện vận động viên tuyên thệ</h3>
+        <p>Chúng tôi thi đấu fair-play, tuân thủ quyết định của trọng tài và ban tổ chức.</p>
       </div>
-     
     </main>
 
-    <footer>&copy; 2025 AES Mông Dương PickleBall Group - chia sẻ với đam mê</footer>
+    <footer>&copy; 2025 AES Mông Dương PickleBall Group - Chia sẻ đam mê</footer>
 
     <script>
       function updateDateTime() {
         const now = new Date();
-        const weekdays = [
-          "Chủ nhật",
-          "Thứ hai",
-          "Thứ ba",
-          "Thứ tư",
-          "Thứ năm",
-          "Thứ sáu",
-          "Thứ bảy",
-        ];
-        const weekday = weekdays[now.getDay()];
-        const day = now.getDate().toString().padStart(2, "0");
-        const month = (now.getMonth() + 1).toString().padStart(2, "0");
-        const year = now.getFullYear();
-        const hours = now.getHours().toString().padStart(2, "0");
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        const seconds = now.getSeconds().toString().padStart(2, "0");
-        document.getElementById(
-          "datetime"
-        ).textContent = `${weekday}, ${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        const weekdays = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+        document.getElementById("datetime").textContent =
+          `${weekdays[now.getDay()]}, ${now.getDate().toString().padStart(2,"0")}/${
+            (now.getMonth()+1).toString().padStart(2,"0")
+          }/${now.getFullYear()} ${now.getHours().toString().padStart(2,"0")}:${
+            now.getMinutes().toString().padStart(2,"0")
+          }:${now.getSeconds().toString().padStart(2,"0")}`;
       }
-      updateDateTime();
       setInterval(updateDateTime, 1000);
+      updateDateTime();
 
       function checkPassword(section) {
-        let password = prompt("Vui lòng nhập mật khẩu để truy cập:");
-
         const passwords = {
           childhood: { pass: "123654", url: "hinh-anh-2025.html" },
           family: { pass: "123654", url: "hinh-anh-bia.html" },
         };
-
-        if (!passwords[section]) {
-          alert("Lỗi xác định quyền truy cập!");
-          return;
-        }
-
-        if (password === passwords[section].pass) {
+        const pw = prompt("Vui lòng nhập mật khẩu để truy cập:");
+        if (pw === passwords[section]?.pass) {
           window.location.href = passwords[section].url;
-        } else if (password === null || password === "") {
+        } else if (pw === "" || pw === null) {
           alert("Bạn chưa nhập mật khẩu.");
         } else {
-          alert("Mật khẩu không đúng!");
+          alert("Sai mật khẩu!");
         }
       }
     </script>
