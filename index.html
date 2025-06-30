@@ -285,7 +285,7 @@
         const seconds = now.getSeconds().toString().padStart(2, "0");
         document.getElementById(
           "datetime"
-        ).textContent = `${weekday}, ${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        ).textContent = ${weekday}, ${day}/${month}/${year} ${hours}:${minutes}:${seconds};
       }
       updateDateTime();
       setInterval(updateDateTime, 1000);
@@ -313,4 +313,417 @@
       }
     </script>
   </body>
+</html> bạn hãy sửa code cho banner nó chạy nhanh lên 1 chút, không thấy nó chuyển động và mướt gì hết bạn ạ
+ChatGPT said:
+OK, mình xem kỹ rồi — thực ra banner của bạn hiện tại chỉ là một hình nền tĩnh trong phần header, cụ thể dòng này:
+
+header {
+  background: url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center center/cover;
+  ...
+}
+Nó hoàn toàn không có chuyển động (slide show hay animation) nên đương nhiên bạn không thấy nó chạy mượt. Nếu bạn muốn banner “chuyển động” (kiểu slider, hoặc có hiệu ứng fade), thì cần thay thế phần đó bằng một slider thực sự (ví dụ chạy ảnh luân phiên).
+
+Mình có thể giúp bạn sửa để dùng simple CSS animation hoặc tích hợp JavaScript slideshow rất nhẹ và mượt. Sau đây là gợi ý thay thế:
+
+Giải pháp: chuyển thành slider (chuyển động mượt)
+1️⃣ Thay thế đoạn header bằng div có chứa nhiều ảnh
+2️⃣ Thêm hiệu ứng fade bằng CSS + JavaScript nhẹ
+
+Ví dụ code mình viết cho bạn ngay dưới đây, copy vào thay thế luôn phần <header>:
+
+<header class="slider">
+  <div class="slides fade">
+    <img src="tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg" alt="Banner 1">
+  </div>
+  <div class="slides fade">
+    <img src="PKB-AES-MD-1 (14).jpg" alt="Banner 2">
+  </div>
+  <div class="slides fade">
+    <img src="PKB-AES-MD-1 (21).jpg" alt="Banner 3">
+  </div>
+  <h1>Pickleball AES Mông Dương</h1>
+</header>
+và thêm đoạn CSS sau vào cuối phần <style>:
+
+.slider {
+  position: relative;
+  max-height: 400px;
+  overflow: hidden;
+  color: white;
+}
+
+.slider .slides {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slider img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.slider h1 {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+/* fade animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+và thêm JavaScript ngay trước </body>:
+
+<script>
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+  let i;
+  const slides = document.getElementsByClassName("slides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2500); // 2.5 giây chuyển nhanh hơn
+}
+</script>
+✅ Với thay đổi này, banner sẽ chuyển động mượt, chuyển slide mỗi 2,5 giây.
+Nếu bạn muốn “chạy nhanh hơn” nữa chỉ cần điều chỉnh số 2500 thành 1500 (1,5 giây) cho tốc độ nhanh hơn.
+
+👉 Nếu bạn đồng ý, mình có thể gộp sẵn toàn bộ vào file HTML đầy đủ giúp bạn — chỉ cần nói “OK, gộp giúp mình” là mình làm ngay!
+
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info.
+ChatGPT says: OK, mình xem kỹ rồi — thực ra **banner** của bạn hiện tại chỉ là một hình nền tĩnh trong phần header, cụ thể dòng này: 
+css header { background: url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center center/cover; ... }
+ Nó hoàn toàn **không có chuyển động** (slide show hay animation) nên đương nhiên bạn không thấy nó chạy mượt. Nếu bạn muốn banner “chuyển động” (kiểu slider, hoặc có hiệu ứng fade), thì cần thay thế phần đó bằng **một slider thực sự** (ví dụ chạy ảnh luân phiên). Mình có thể giúp bạn sửa để dùng **simple CSS animation** hoặc tích hợp **JavaScript slideshow** rất nhẹ và mượt. Sau đây là gợi ý thay thế: --- ## Giải pháp: chuyển thành slider (chuyển động mượt) 1️⃣ Thay thế đoạn header bằng div có chứa nhiều ảnh 2️⃣ Thêm hiệu ứng fade bằng CSS + JavaScript nhẹ **Ví dụ code** mình viết cho bạn ngay dưới đây, copy vào thay thế luôn phần <header>: 
+html <header class="slider"> <div class="slides fade"> <img src="tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg" alt="Banner 1"> </div> <div class="slides fade"> <img src="PKB-AES-MD-1 (14).jpg" alt="Banner 2"> </div> <div class="slides fade"> <img src="PKB-AES-MD-1 (21).jpg" alt="Banner 3"> </div> <h1>Pickleball AES Mông Dương</h1> </header>
+ và thêm đoạn **CSS** sau vào cuối phần <style>: 
+css .slider { position: relative; max-height: 400px; overflow: hidden; color: white; } .slider .slides { display: none; position: absolute; width: 100%; height: 100%; } .slider img { width: 100%; height: 400px; object-fit: cover; } .slider h1 { position: absolute; top: 40%; width: 100%; text-align: center; font-family: "Playfair Display", serif; font-size: 42px; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index: 2; } /* fade animation */ .fade { animation-name: fade; animation-duration: 1.5s; } @keyframes fade { from {opacity: .4} to {opacity: 1} }
+ và thêm **JavaScript** ngay trước </body>: 
+html <script> let slideIndex = 0; showSlides(); function showSlides() { let i; const slides = document.getElementsByClassName("slides"); for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; } slideIndex++; if (slideIndex > slides.length) {slideIndex = 1} slides[slideIndex-1].style.display = "block"; setTimeout(showSlides, 2500); // 2.5 giây chuyển nhanh hơn } </script>
+ --- ✅ Với thay đổi này, banner sẽ **chuyển động mượt**, chuyển slide mỗi 2,5 giây. Nếu bạn muốn “chạy nhanh hơn” nữa chỉ cần điều chỉnh số 2500 thành 1500 (1,5 giây) cho tốc độ nhanh hơn. > 👉 Nếu bạn đồng ý, mình có thể **gộp sẵn toàn bộ** vào file HTML đầy đủ giúp bạn — chỉ cần nói **“OK, gộp giúp mình”** là mình làm ngay!
+ChatGPT said:
+OK, mình sẽ gộp sẵn toàn bộ cho bạn ngay đây, đầy đủ từ đầu đến cuối, thay thế hoàn chỉnh luôn để bạn chỉ cần copy-paste — banner chạy slide đẹp, mượt, nhanh (2,5 giây/slide), có thể điều chỉnh dễ dàng.
+
+ĐÂY LÀ FILE HTML HOÀN CHỈNH:
+
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PickleBall - Công ty AES Mông Dương</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #333;
+      }
+
+      /* slider banner */
+      .slider {
+        position: relative;
+        max-height: 400px;
+        overflow: hidden;
+        color: white;
+      }
+      .slider .slides {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .slider img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+      .slider h1 {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        z-index: 2;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @keyframes fade {
+        from {opacity: 0.4}
+        to {opacity: 1}
+      }
+
+      nav.main-menu {
+        background: #343a40;
+      }
+      nav.main-menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      nav.main-menu ul li {
+        position: relative;
+        margin: 0 15px;
+      }
+      nav.main-menu ul li a {
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 10px 14px;
+        display: inline-block;
+        border-radius: 5px;
+      }
+      nav.main-menu ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      nav.main-menu ul li:hover .dropdown-content {
+        display: block;
+      }
+      nav.main-menu ul li .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        background-color: #343a40;
+        min-width: 220px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content li {
+        text-align: left;
+      }
+      .dropdown-content li a {
+        padding: 12px 16px;
+        color: white;
+        display: block;
+      }
+      .dropdown-content li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      .datetime {
+        text-align: center;
+        font-size: 14px;
+        margin: 10px 0;
+        color: #555;
+      }
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+      }
+      .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      .card h3 {
+        margin: 20px 0 10px;
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: #1d3557;
+      }
+      .card p {
+        padding: 0 20px 20px;
+        font-size: 16px;
+        color: #444;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="slider">
+      <div class="slides fade">
+        <img src="tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg" alt="Banner 1">
+      </div>
+      <div class="slides fade">
+        <img src="PKB-AES-MD-1 (14).jpg" alt="Banner 2">
+      </div>
+      <div class="slides fade">
+        <img src="PKB-AES-MD-1 (21).jpg" alt="Banner 3">
+      </div>
+      <h1>Pickleball AES Mông Dương</h1>
+    </header>
+
+    <nav class="main-menu">
+      <ul>
+        <li><a href="index.html">Trang Chủ🏠</a></li>
+        <li><a href="Tin-tuc.html">Tin Tức</a></li>
+        <li class="dropdown">
+          <a href="#">Hình Ảnh ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="#" onclick="checkPassword('childhood')" style="color:#ffd700;font-weight:bold">Hình Ảnh Trên Sân</a></li>
+            <li><a href="#" onclick="checkPassword('family')" style="color:#daa520;font-weight:bold">Hình Ảnh Giao lưu - Văn Nghệ</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Tham khảo về Pickleball ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="https://bestsport.vn/luat-choi-pickleball/">Luật Chơi Pickleball Chuẩn Thi Đấu 2025</a></li>
+            <li><a href="https://www.bing.com/search?q=hướng+dẫn+cho+người+mới+tập+chơi+pickleball">Hướng dẫn cho người mới tập chơi</a></li>
+            <li><a href="https://www.bing.com/videos/search?q=hướng+dẫn+pickleball">Hướng dẫn cầm vợt Pickleball</a></li>
+            <li><a href="https://www.bing.com/videos/search?q=khóa+học+pickleball">Khóa học Pickleball Volley Cơ Bản</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Video ▼</a>
+          <ul class="dropdown-content">
+            <li><a href="chien-than.html">Chiến Thần - Tổng Tài</a></li>
+            <li><a href="hinh-su-viet-nam.html">Hình Sự Việt Nam</a></li>
+            <li><a href="pickleball-video.html">Tham Khảo Trận Đấu PickleBall</a></li>
+            <li><a href="video-giai-dau-25-6-2025.html">30 trận đấu vòng bảng 6/2025</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="datetime"><span id="datetime"></span></div>
+
+    <main class="content">
+      <div class="card">
+        <img src="7-JAN-2025.jpg" alt="Giải thi đấu lần 1" />
+        <h3>Đội nhóm PickleBall ban đầu của AES Mông Dương</h3>
+        <p>
+          Lần thi đấu đầu tiên diễn ra ngày 07-Jan-2025<br>
+          Thi đấu hết mình với tinh thần fair-play!
+        </p>
+      </div>
+      <div class="card">
+        <img src="Logo-AESMD-Pickleball1.jpg" alt="Luyện tập hàng ngày" />
+        <h3>Dắt tay nhau - Đoàn kết - Phát triển</h3>
+        <p>
+          Luyện tập - Vui chơi để có tinh thần, sức khỏe và lối sống lành mạnh!
+        </p>
+      </div>
+      <div class="card">
+        <img src="Logo-AESMD-Pickleball.jpg" alt="PickleBall sức khỏe" />
+        <h3>Luyện tập chăm chỉ, thi đấu hết mình</h3>
+        <p>
+          Không ngừng tập luyện để tất cả chúng ta có sức khỏe và tinh thần tốt!
+        </p>
+      </div>
+      <div class="card">
+        <img src="PKB-AES-MD-1 (21).jpg" alt="Lễ khai mạc" />
+        <h3>Lễ khai mạc CLB PickleBall AES-Mông Dương</h3>
+        <p>
+          Cùng nhau tập luyện, thi đấu fair-play để CLB ngày càng mạnh!
+        </p>
+      </div>
+      <div class="card">
+        <img src="PKB-AES-MD-1 (14).jpg" alt="Ban lãnh đạo tặng hoa" />
+        <h3>Ban lãnh đạo tặng hoa chúc mừng CLB</h3>
+        <p>
+          Chúc giải đấu thành công rực rỡ, tất cả cùng chiến thắng!
+        </p>
+      </div>
+      <div class="card">
+        <img src="PKB-AES-MD-1 (34).jpg" alt="Tuyên thệ fair-play" />
+        <h3>Vận động viên tuyên thệ fair-play</h3>
+        <p>
+          Xin hứa thi đấu hết mình, tôn trọng trọng tài và BTC!
+        </p>
+      </div>
+    </main>
+
+    <footer>&copy; 2025 AES Mông Dương PickleBall Group - Chia sẻ đam mê</footer>
+
+    <script>
+      function updateDateTime() {
+        const now = new Date();
+        const weekdays = ["Chủ nhật","Thứ hai","Thứ ba","Thứ tư","Thứ năm","Thứ sáu","Thứ bảy"];
+        const weekday = weekdays[now.getDay()];
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        document.getElementById("datetime").textContent =
+          `${weekday}, ${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+      }
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+
+      let slideIndex = 0;
+      function showSlides() {
+        const slides = document.getElementsByClassName("slides");
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2500); // đổi 2500 thành 1500 nếu muốn nhanh hơn nữa
+      }
+      showSlides();
+
+      function checkPassword(section) {
+        let password = prompt("Vui lòng nhập mật khẩu để truy cập:");
+        const passwords = {
+          childhood: { pass: "123654", url: "hinh-anh-2025.html" },
+          family: { pass: "123654", url: "hinh-anh-bia.html" },
+        };
+        if (!passwords[section]) {
+          alert("Lỗi xác định quyền truy cập!");
+          return;
+        }
+        if (password === passwords[section].pass) {
+          window.location.href = passwords[section].url;
+        } else if (!password) {
+          alert("Bạn chưa nhập mật khẩu.");
+        } else {
+          alert("Mật khẩu không đúng!");
+        }
+      }
+    </script>
+  </body>
 </html>
+
