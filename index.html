@@ -8,7 +8,44 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
       rel="stylesheet"
     />
+
+
+    
     <style>
+
+       * {
+      box-sizing: border-box;
+    }
+    .banner-container {
+      position: relative;
+      width: 800px;    /* tùy chỉnh kích thước banner */
+      height: 400px;
+      overflow: hidden;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .banner-slide {
+      display: flex;
+      width: 400%; /* 4 ảnh => 4 lần chiều rộng */
+      animation: slide 16s infinite;
+    }
+    .banner-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      20% { transform: translateX(0%); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
+      100% { transform: translateX(0%); }
+    }
       body {
         font-family: "Roboto", sans-serif;
         margin: 0;
@@ -202,6 +239,17 @@
            </ul>
        
     </nav>
+
+    <body>
+  <div class="banner-container">
+    <div class="banner-slide">
+      <img src="PKB-AES-MD-1 (21).jpg" alt="Hình 1">
+      <img src="PKB-AES-MD-1 (34).jpg" alt="Hình 2">
+      <img src="PKB-AES-MD-1 (35).jpg" alt="Hình 3">
+      <img src="PKB-AES-MD-1 (36).jpg" alt="Hình 4">
+    </div>
+  </div>
+</body>
 
     <div class="datetime"><span id="datetime"></span></div>
 
