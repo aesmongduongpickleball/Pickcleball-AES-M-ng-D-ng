@@ -7,5 +7,5 @@ setInterval(() => {
   if (currentSlide >= slides.length) {
     currentSlide = 0;
   }
-  slideContainer.style.transform = `translateX(-${currentSlide * 800}px)`;
-}, 4000);
+  slideContainer.style.transform = `translateX(-${currentSlide * 200}px)`;
+},100);
